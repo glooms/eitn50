@@ -1,54 +1,63 @@
 \documentclass{article}
 
 \begin{document}
-
-\begin{tabular}{|l|r|r|}
+\section{Hardware Properties of the Memory Device}
+\begin{tabular}{l c r}
     \hline
-     & Offset (decimal) & value\\
+    \textbf{Information} & \textbf{Offset (decimal)} & \textbf{Value}\\
     \hline
     Device name & 43 & "NO NAME    "\\
-    \hline
     Serial number & 39 & 464598564\\
-    \hline
     Filesystem type & 54 & "FAT12   "\\
-    \hline
     System identifier & 3 & MSDOS5.0\\
-    \hline
     Media descriptor & 21 & 0xF0 (floppy)\\
-    \hline
     Bytes per sector & 11 & 2\\
-    \hline
     Number of reserved sectors & 14 & 256\\
-    \hline
     Number of sectors per allocation & 13 & 1\\
-    \hline
     Number of sectors per FAT & 22 &2304\\
-    \hline
     Size of the device (bytes) & ? & 179184\\
-    \hline
     Number of sectors per track & 24 & 4608\\
-    \hline
     Number of heads or sides on the diskette & 26 & 512\\
-    \hline
     Number of hidden sectors & 28 & 0\\
-    \hline
     Start of Bootstrap routine & 1 &60\\
-    \hline
     Number of FAT & 16 & 2\\
-    \hline
     Offset to start of FAT(s) & - & 512\\
-    \hline
     BIOS boot Signature & 510 & 0x55AA\\
-    \hline
     Root Directory Offset & - & 9728\\
-    \hline
     Offset to data area & - & 16896\\
-    \hline
     Additional Information & &\\
     of interest you find & &\\
     \hline
-\end{tabular}
+\end{tabular}\\
+\\
+\\
+Note: Seems like the bytes 11 and 12 got mixed up. If they were in reverse order the sector size would correctly be 512 bytes, instead it is 2 bytes.
 
-Seems like the bytes 11 and 12 got mixed up. If they were in reverse order the sector size would correctly be 512 bytes, instead it is 2 bytes.
+\section{FAT Investigation}
+
+Find out where the virus has corrupted the FAT tables and suggest a way to correct it.
+
+\section{Investigation of Directories}
+
+For each directory fill one of these:\\
+\\
+\begin{tabular}{l c r}
+    \hline
+    \textbf{Information} & \textbf{Offset (Size)} & \textbf{Value}\\
+    Directory/File Name & ? & ? \\
+    Attributes & ? & ? \\
+    Creation Time and Date & ? & ? \\
+    Last Access Date & ? & ? \\
+    Time and Date Stamp & ? & ? \\
+    Cluster’s Chain in FAT & ? & ? \\
+    Absolute Offset & ? & ? \\
+    Size of the file & ? & ? \\
+    \hline
+\end{tabular}
+\\
+\\
+\\
+Also find and analyze the anomalies.
+\section{Attack on Zip-archive}
 
 \end{document}
