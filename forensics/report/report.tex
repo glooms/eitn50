@@ -31,11 +31,13 @@
 \end{tabular}\\
 \\
 \\
-Note: Seems like the bytes 11 and 12 got mixed up. If they were in reverse order the sector size would correctly be 512 bytes, instead it is 2 bytes.
+Note: Seems like the bytes 11 and 12 got mixed up. If they were in reverse order the sector size would correctly be 512 bytes, instead it is 2 bytes. Due to almost all other information being correctly read, we assume this is just an error.
 
 \section{FAT Investigation}
 
-Find out where the virus has corrupted the FAT tables and suggest a way to correct it.
+Find out where the virus has corrupted the FAT tables and suggest a way to correct it.\\
+\\
+Seems like the infamous virus VirFAT has overwritten every other entry with a counter. One way to fix it would be to use the second FAT but it has also been overwritten.
 
 \section{Investigation of Directories}
 
