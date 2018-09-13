@@ -6,23 +6,25 @@
     \hline
     \textbf{Information} & \textbf{Offset (decimal)} & \textbf{Value}\\
     \hline
-    Device name & 43 & "NO NAME    "\\
-    Serial number & 39 & 464598564\\
-    Filesystem type & 54 & "FAT12   "\\
+    Device name & 43 & NO NAME    \\
+    Serial number & 39 & 607564059\\
+    Filesystem type & 54 & FAT12   \\
     System identifier & 3 & MSDOS5.0\\
     Media descriptor & 21 & 0xF0 (floppy)\\
-    Bytes per sector & 11 & 2\\
-    Number of reserved sectors & 14 & 256\\
+    Bytes per sector & 11 & 512\\
+    Number of reserved sectors & 14 & 1\\
     Number of sectors per allocation & 13 & 1\\
-    Number of sectors per FAT & 22 &2304\\
-    Size of the device (bytes) & ? & 179184\\
-    Number of sectors per track & 24 & 4608\\
-    Number of heads or sides on the diskette & 26 & 512\\
+    Number of sectors per FAT & 22 & 9\\
+    Size of the device (bytes) & ? & 179200\\
+    Number of sectors per track & 24 & 18\\
+    Number of heads or sides on the diskette & 26 & 2\\
     Number of hidden sectors & 28 & 0\\
     Start of Bootstrap routine & 1 &60\\
     Number of FAT & 16 & 2\\
-    Offset to start of FAT(s) & - & 512\\
-    BIOS boot Signature & 510 & 0x55AA\\
+    Number of root entires & 17 & 224\\ 
+    Offset to start of FAT1 & - & 512\\
+    Offset to start of FAT2 & - & 5120\\
+    BIOS boot Signature & 510 & 0xAA55\\
     Root Directory Offset & - & 9728\\
     Offset to data area & - & 16896\\
     Additional Information & &\\
@@ -31,7 +33,7 @@
 \end{tabular}\\
 \\
 \\
-Note: Seems like the bytes 11 and 12 got mixed up. If they were in reverse order the sector size would correctly be 512 bytes, instead it is 2 bytes. Due to almost all other information being correctly read, we assume this is just an error.
+Note: Reading the bytes in reverse order (little endian) for all entries except the fields containing strings yields correct data... so the string fields are probably actually in reverse order.
 
 \section{FAT Investigation}
 
@@ -60,6 +62,7 @@ For each directory fill one of these:\\
 \\
 \\
 Also find and analyze the anomalies.
+
 \section{Attack on Zip-archive}
 
 \end{document}

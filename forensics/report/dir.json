@@ -1,0 +1,251 @@
+{
+  "GROUP01 ": [
+    {
+      "abs_offset": 144384, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-25-12", 
+      "ext": "   ", 
+      "filesize": 0, 
+      "first_clust": 251, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-25-14", 
+      "name": ".       "
+    }, 
+    {
+      "abs_offset": 144416, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-25-12", 
+      "ext": "   ", 
+      "filesize": 0, 
+      "first_clust": 0, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-25-14", 
+      "name": "..      "
+    }, 
+    {
+      "abs_offset": 144448, 
+      "attr": [
+        "archive"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-26-22", 
+      "ext": "DAT", 
+      "filesize": 2029, 
+      "first_clust": 260, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-19-8", 
+      "name": "\u00e5YSTEM  "
+    }, 
+    {
+      "abs_offset": 144480, 
+      "attr": [
+        "archive"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "18-12-6", 
+      "ext": "TXT", 
+      "filesize": 12, 
+      "first_clust": 253, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "18-12-24", 
+      "name": "TEST    "
+    }
+  ], 
+  "GROUP02 ": [
+    {
+      "abs_offset": 144384, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-25-12", 
+      "ext": "   ", 
+      "filesize": 0, 
+      "first_clust": 251, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-25-14", 
+      "name": ".       "
+    }, 
+    {
+      "abs_offset": 144416, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-25-12", 
+      "ext": "   ", 
+      "filesize": 0, 
+      "first_clust": 0, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-25-14", 
+      "name": "..      "
+    }, 
+    {
+      "abs_offset": 144448, 
+      "attr": [
+        "archive"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-26-22", 
+      "ext": "DAT", 
+      "filesize": 2029, 
+      "first_clust": 260, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-19-8", 
+      "name": "\u00e5YSTEM  "
+    }, 
+    {
+      "abs_offset": 144480, 
+      "attr": [
+        "archive"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "18-12-6", 
+      "ext": "TXT", 
+      "filesize": 12, 
+      "first_clust": 253, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "18-12-24", 
+      "name": "TEST    "
+    }
+  ], 
+  "root": [
+    {
+      "abs_offset": 9728, 
+      "attr": [
+        "vol id"
+      ], 
+      "cr_date": "0-0-1980", 
+      "cr_time": "0-0-0", 
+      "ext": "S  ", 
+      "filesize": 0, 
+      "first_clust": 0, 
+      "last_acc": "0-0-1980", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-16-6", 
+      "name": "FORENSIC"
+    }, 
+    {
+      "abs_offset": 9760, 
+      "attr": [
+        "archive"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-24-2", 
+      "ext": "TXT", 
+      "filesize": 127410, 
+      "first_clust": 2, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-0-2046", 
+      "lw_time": "19-30-26", 
+      "name": "OUTPUT  "
+    }, 
+    {
+      "abs_offset": 9824, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-25-12", 
+      "ext": "   ", 
+      "filesize": 0, 
+      "first_clust": 251, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-25-14", 
+      "name": "GROUP01 "
+    }, 
+    {
+      "abs_offset": 9888, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-25-18", 
+      "ext": "   ", 
+      "filesize": 0, 
+      "first_clust": 251, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-25-20", 
+      "name": "GROUP02 "
+    }, 
+    {
+      "abs_offset": 9952, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-25-22", 
+      "ext": "   ", 
+      "filesize": 512, 
+      "first_clust": 253, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-25-24", 
+      "name": "\u00e5ROUP03 "
+    }, 
+    {
+      "abs_offset": 10336, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-26-28", 
+      "ext": "   ", 
+      "filesize": 512, 
+      "first_clust": 259, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-26-30", 
+      "name": "\u00e5ROUP09 "
+    }
+  ], 
+  "\u00e5ROUP03 ": [], 
+  "\u00e5ROUP09 ": [
+    {
+      "abs_offset": 148480, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-26-28", 
+      "ext": "   ", 
+      "filesize": 0, 
+      "first_clust": 259, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-26-30", 
+      "name": ".       "
+    }, 
+    {
+      "abs_offset": 148512, 
+      "attr": [
+        "dir"
+      ], 
+      "cr_date": "12-4-2040", 
+      "cr_time": "17-26-28", 
+      "ext": "   ", 
+      "filesize": 0, 
+      "first_clust": 0, 
+      "last_acc": "12-4-2040", 
+      "lw_date": "12-4-2040", 
+      "lw_time": "17-26-30", 
+      "name": "..      "
+    }
+  ]
+}
