@@ -131,7 +131,7 @@ def dec_to_date(x):
     day = int(b[:4][::-1], 2)
     month = int(b[5:8][::-1], 2)
     year = 1980 + int(b[9:][::-1], 2)
-    return '%d-%d-%d' % (day, month, year)
+    return '%d-%02d-%02d' % (day, month, year)
 
 
 def dec_to_time(x):
@@ -139,7 +139,7 @@ def dec_to_time(x):
     s = int(b[:4][::-1], 2) * 2
     m = int(b[5:10][::-1], 2)
     h = int(b[11:][::-1], 2)
-    return '%d-%d-%d' % (h, m, s)
+    return '%02d:%02d:%02d' % (h, m, s)
 
 
 def interpret_attributes(x):
@@ -190,4 +190,3 @@ if __name__ == '__main__': # Main method in python
         hb.dir_structure['root'] += hb.explore_cluster(i, False)
     for d in hb.dir_structure['root']:
         hb.explore_dir(d)
-    pp(hb.dir_structure)

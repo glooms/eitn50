@@ -5,14 +5,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-25-12", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:25:12", 
       "ext": "   ", 
       "filesize": 0, 
       "first_clust": 251, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-25-14", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:25:14", 
       "name": ".       "
     }, 
     {
@@ -20,14 +20,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-25-12", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:25:12", 
       "ext": "   ", 
       "filesize": 0, 
       "first_clust": 0, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-25-14", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:25:14", 
       "name": "..      "
     }, 
     {
@@ -35,14 +35,14 @@
       "attr": [
         "archive"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-26-22", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:26:22", 
       "ext": "DAT", 
       "filesize": 2029, 
       "first_clust": 260, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-19-8", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:19:08", 
       "name": "\u00e5YSTEM  "
     }, 
     {
@@ -50,14 +50,14 @@
       "attr": [
         "archive"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "18-12-6", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "18:12:06", 
       "ext": "TXT", 
       "filesize": 12, 
       "first_clust": 253, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "18-12-24", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "18:12:24", 
       "name": "TEST    "
     }
   ], 
@@ -67,14 +67,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-25-12", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:25:12", 
       "ext": "   ", 
       "filesize": 0, 
       "first_clust": 251, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-25-14", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:25:14", 
       "name": ".       "
     }, 
     {
@@ -82,14 +82,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-25-12", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:25:12", 
       "ext": "   ", 
       "filesize": 0, 
       "first_clust": 0, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-25-14", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:25:14", 
       "name": "..      "
     }, 
     {
@@ -97,14 +97,14 @@
       "attr": [
         "archive"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-26-22", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:26:22", 
       "ext": "DAT", 
       "filesize": 2029, 
       "first_clust": 260, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-19-8", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:19:08", 
       "name": "\u00e5YSTEM  "
     }, 
     {
@@ -112,14 +112,14 @@
       "attr": [
         "archive"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "18-12-6", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "18:12:06", 
       "ext": "TXT", 
       "filesize": 12, 
       "first_clust": 253, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "18-12-24", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "18:12:24", 
       "name": "TEST    "
     }
   ], 
@@ -129,14 +129,14 @@
       "attr": [
         "vol id"
       ], 
-      "cr_date": "0-0-1980", 
-      "cr_time": "0-0-0", 
+      "cr_date": "0-00-1980", 
+      "cr_time": "00:00:00", 
       "ext": "S  ", 
       "filesize": 0, 
       "first_clust": 0, 
-      "last_acc": "0-0-1980", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-16-6", 
+      "last_acc": "0-00-1980", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:16:06", 
       "name": "FORENSIC"
     }, 
     {
@@ -144,14 +144,14 @@
       "attr": [
         "archive"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-24-2", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:24:02", 
       "ext": "TXT", 
       "filesize": 127410, 
       "first_clust": 2, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-0-2046", 
-      "lw_time": "19-30-26", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-00-2046", 
+      "lw_time": "19:30:26", 
       "name": "OUTPUT  "
     }, 
     {
@@ -159,14 +159,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-25-12", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:25:12", 
       "ext": "   ", 
       "filesize": 0, 
       "first_clust": 251, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-25-14", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:25:14", 
       "name": "GROUP01 "
     }, 
     {
@@ -174,14 +174,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-25-18", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:25:18", 
       "ext": "   ", 
       "filesize": 0, 
       "first_clust": 251, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-25-20", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:25:20", 
       "name": "GROUP02 "
     }, 
     {
@@ -189,14 +189,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-25-22", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:25:22", 
       "ext": "   ", 
       "filesize": 512, 
       "first_clust": 253, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-25-24", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:25:24", 
       "name": "\u00e5ROUP03 "
     }, 
     {
@@ -204,14 +204,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-26-28", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:26:28", 
       "ext": "   ", 
       "filesize": 512, 
       "first_clust": 259, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-26-30", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:26:30", 
       "name": "\u00e5ROUP09 "
     }
   ], 
@@ -222,14 +222,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-26-28", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:26:28", 
       "ext": "   ", 
       "filesize": 0, 
       "first_clust": 259, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-26-30", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:26:30", 
       "name": ".       "
     }, 
     {
@@ -237,14 +237,14 @@
       "attr": [
         "dir"
       ], 
-      "cr_date": "12-4-2040", 
-      "cr_time": "17-26-28", 
+      "cr_date": "12-04-2040", 
+      "cr_time": "17:26:28", 
       "ext": "   ", 
       "filesize": 0, 
       "first_clust": 0, 
-      "last_acc": "12-4-2040", 
-      "lw_date": "12-4-2040", 
-      "lw_time": "17-26-30", 
+      "last_acc": "12-04-2040", 
+      "lw_date": "12-04-2040", 
+      "lw_time": "17:26:30", 
       "name": "..      "
     }
   ]
