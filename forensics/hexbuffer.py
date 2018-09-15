@@ -47,8 +47,8 @@ class HexBuffer:
         arr = dump.split(' ')
         fat = []
         for i in xrange(0, len(arr), 3):
-            fat += [arr[i + 1][0] + arr[i]]
-            fat += [arr[i + 2] + arr[i + 1][1]]
+            fat += [arr[i + 1][1] + arr[i]]
+            fat += [arr[i + 2] + arr[i + 1][0]]
         return fat
 
     def get_cluster_chain(self, a):

@@ -39,7 +39,7 @@ Note: Reading the bytes in reverse order (little endian) for all entries except 
 
 Find out where the virus has corrupted the FAT tables and suggest a way to correct it.\\
 \\
-Seems like the infamous virus VirFAT has overwritten every other entry with a counter. One way to fix it would be to use the second FAT but it has also been overwritten.
+The FAT tables seem to contain basically one long chain, from 2 to 250. However, the entry at 109 has the hexcode \texttt{03A}, pointing to 58 instead of 110. Changing \texttt{03A} to \texttt{06E} solves this.
 
 \section{Investigation of Directories}
 
