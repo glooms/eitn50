@@ -127,17 +127,17 @@ def hex_to_char(x): # Hexadecimal number to character
 
 
 def dec_to_date(x):
-    b = '{0:b}'.format(x).zfill(16)
-    day = int(b[:4][::-1], 2)
-    month = int(b[5:8][::-1], 2)
+    b = '{0:b}'.format(x).zfill(16)[::-1] # Since it comes in reverse order
+    day = int(b[:5][::-1], 2) # Reverse again since LSB = 0.
+    month = int(b[5:9][::-1], 2)
     year = 1980 + int(b[9:][::-1], 2)
     return '%d-%02d-%02d' % (year, month, day)
 
 
 def dec_to_time(x):
-    b = '{0:b}'.format(x).zfill(16)
-    s = int(b[:4][::-1], 2) * 2
-    m = int(b[5:10][::-1], 2)
+    b = '{0:b}'.format(x).zfill(16)[::-1] # Since it comes in reverse order
+    s = int(b[:5][::-1], 2) * 2 # Reverse again since LSB = 0.
+    m = int(b[5:11][::-1], 2)
     h = int(b[11:][::-1], 2)
     return '%02d:%02d:%02d' % (h, m, s)
 
