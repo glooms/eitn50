@@ -10,6 +10,7 @@ class Peer(object):
         self.client_port = client_port
         self.server_socket = self.setup_socket()
         self.client_socket = self.setup_socket(False)
+        self.buffer = []
 
     def setup_socket(self, server=True):
         try:
@@ -26,9 +27,11 @@ class Peer(object):
     def send(self, msg):
         self.client_socket.send(msg)
 
+    def set_receive(self, func):
+        self.receive = func
+
     def receive(self, data):
-        #print data
-        print [hex(ord(x)) for x in data]
+        print ' '.join(['{0:X}'.format(ord(d)).zfill(2) for d in data])
 
     def start(self):
         self.server_thread = thread.start_new_thread(self.listen, ())
