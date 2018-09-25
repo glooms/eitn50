@@ -18,12 +18,15 @@ from enum import Enum
     communicate how many packages should be received.
 
     Therefore I propose the second byte keeping track of just that.
-    One solution is by having the first 4 bits indicate the amount of packets
-    being sent and the following 4 indicating which packet it is.
-    E.g.:   0x31 first packet of 3 incoming.
-            0x32 second
-            0x33 last
-   
+
+    Let l be the number of packets being sent.
+
+    The first packet will have this byte set to l - 1.
+
+    The following packets will count upwards, starting at 0 until l - 2.
+    We will in this way be able to send data up to 60 * 256 bytes divided into a maximum
+    of 256 packets.
+
     The common secret will be the key to open the object.
 
     The following 2 bytes will contain a session id so that packets can be

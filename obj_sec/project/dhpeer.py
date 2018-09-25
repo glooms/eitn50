@@ -10,7 +10,7 @@ class DHPeer(Peer):
     def __init__(self, **kwargs):
         super(DHPeer, self).__init__(**kwargs)
         self.backend = default_backend()
-        self.buffer_limit = 100
+        self.buffer_limit = 300
         self.session_counter = 0
         self._buffer = []
         self._remaining = {}
@@ -32,14 +32,20 @@ class DHPeer(Peer):
         self._init_handshake()
 
     def _send(self, packet_type, data=None):
+        if data and len(data) > 60 * 0x7F:
+            print 'Packet too big to send. It is %d bytes, max is %d' % (len(data), 60 * 0x7F)
+            return
         session = '{0:b}'.format(self.session_counter).zfill(16)
         session_str = chr(int(session[:8], 2)) + chr(int(session[8:], 2))
         if data:
             packets = [data[i * 60: (i + 1) * 60] for i in xrange(len(data) / 60 + 1)]
-            pack_count = len(packets) * 16
             for i, packet in enumerate(packets):
-                header = chr(packet_type) + chr(pack_count + i + 1) + session_str 
-                super(DHPeer, self).send(header + packet)
+                pack_id = i - 1
+                if pack_id == -1:
+                    pack_id = len(packets) - 1
+                header = chr(packet_type) + chr(pack_id) + session_str
+                payload = header + packet
+                super(DHPeer, self).send(payload)
         else:
             header = chr(packet_type) + chr(0x11) + session_str
             super(DHPeer, self).send(header)
@@ -48,6 +54,7 @@ class DHPeer(Peer):
     def _send_obj(self):
         obj = self._sending_obj
         enc_obj = jwt.encode(obj, self.shared_key, algorithm='HS256')
+        print 'Size: %d' % len(enc_obj)
         self._send(Protocol.SEND.value, enc_obj)
         self._sending_obj = None
 
@@ -90,7 +97,7 @@ class DHPeer(Peer):
     def _handle_header(self, header):
         data_flag = ord(header[0])
         if not data_flag in self._remaining:
-            self._remaining[data_flag] = (ord(header[1]) & 0xF0) >> 4
+            self._remaining[data_flag] = ord(header[1]) + 1
         self._remaining[data_flag] -= 1
         if self._remaining[data_flag]:
             return
@@ -116,11 +123,10 @@ class DHPeer(Peer):
         f = lambda x : ord(x[0]) == data_flag and x[2:4] == session_id
         packets = filter(f, self._buffer)
         flags = [ord(p[1]) for p in packets]
-        cnt = flags[0] & 0xF0
-        indexes = [f & 0x0F for f in flags]
-        r = range(1, cnt + 1)
-        for i in indexes:
-            if not i in r:
+        cnt = flags[0]
+        r = range(0, cnt + 1)
+        for f in flags:
+            if not f in r:
                 return None
         del(self._remaining[data_flag])
         return packets
@@ -163,6 +169,7 @@ def run_tests():
     test1()
     test2()
     test3()
+    test4()
 
 def test1():
     p_a = a.params.parameter_numbers()._p
@@ -181,3 +188,11 @@ def test3():
     rec_obj = b.received_object
     assert sent_obj == rec_obj
     print 'Test 3 passed.'
+
+def test4():
+    large_obj = {u'' + str(i) :range(100) for i in xrange(18)}
+    b.send(large_obj)
+    import time; time.sleep(1)
+    rec_obj = a.received_object
+    assert large_obj == rec_obj
+    print 'Test 4 passed.'
