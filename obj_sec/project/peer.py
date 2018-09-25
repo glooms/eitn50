@@ -8,11 +8,10 @@ class Peer(object):
         self.host = host
         self.server_port = server_port
         self.client_port = client_port
-        self.server_socket = self.setup_socket()
-        self.client_socket = self.setup_socket(False)
-        self.buffer = []
+        self._server_socket = self._setup_socket()
+        self._client_socket = self._setup_socket(False)
 
-    def setup_socket(self, server=True):
+    def _setup_socket(self, server=True):
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             if server:
@@ -25,20 +24,15 @@ class Peer(object):
         return s
 
     def send(self, msg):
-        self.client_socket.send(msg)
+        self._client_socket.send(msg)
 
-    def set_receive(self, func):
-        self.receive = func
-
-    def receive(self, data):
+    def _receive(self, data):
         print ' '.join(['{0:X}'.format(ord(d)).zfill(2) for d in data])
 
     def start(self):
-        self.server_thread = thread.start_new_thread(self.listen, ())
+        self.server_thread = thread.start_new_thread(self._listen, ())
 
-    def listen(self):
+    def _listen(self):
         while 1:
-            data, addr = self.server_socket.recvfrom(64)
-            self.receive(data)
-
-
+            data, addr = self._server_socket.recvfrom(64)
+            self._receive(data)
