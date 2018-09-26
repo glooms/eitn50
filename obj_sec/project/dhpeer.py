@@ -54,22 +54,24 @@ class DHPeer(Peer):
 
     def _send_obj(self):
         obj = self._sending_obj
+        self.log('Object to send: ' + str(obj))
         self.log('Encrypting object.')
         enc_obj = jwt.encode(obj, self.shared_key, algorithm='HS256')
         self.log('Sending object.')
-        self._send(Protocol.SEND.value, enc_obj)
+        self._send(Protocol.SEND, enc_obj)
         self._sending_obj = None
 
     def _decrypt(self, enc_obj):
         self.log('Object received.')
         self.log('Decrypting object.')
         obj = jwt.decode(u''.join(enc_obj), self.shared_key, algorithms='HS256')
+        self.log('Object: ' + str(obj))
         return obj
 
     def _send_params(self):
         self.log('Sending parameters.')
         param_bytes = self.params.parameter_bytes(Encoding.DER, ParameterFormat.PKCS3)
-        self._send(Protocol.BASE.value, param_bytes)
+        self._send(Protocol.BASE, param_bytes)
 
     def _init_handshake(self):
         self.log('Generating private key.')
@@ -94,12 +96,12 @@ class DHPeer(Peer):
     def _send_public_key(self, pub_key):
         self.log('Sending public key.')
         pub_key_bytes = pub_key.public_bytes(Encoding.DER, PublicFormat.SubjectPublicKeyInfo)
-        self._send(Protocol.SECRET.value, pub_key_bytes)
+        self._send(Protocol.SECRET, pub_key_bytes)
 
     def _send_public_key_ack(self, pub_key):
         self.log('Sending public key.')
         pub_key_bytes = pub_key.public_bytes(Encoding.DER, PublicFormat.SubjectPublicKeyInfo)
-        self._send(Protocol.SECRET_ACK.value, pub_key_bytes)
+        self._send(Protocol.SECRET_ACK, pub_key_bytes)
 
     def _receive(self, data):
         self._buffer += [data]
@@ -117,17 +119,17 @@ class DHPeer(Peer):
         session_id = header[2:]
         packets = self._all_received(data_flag, session_id)
         if packets:
-            if data_flag == Protocol.BASE.value:
+            if data_flag == Protocol.BASE:
                 self._load_params(packets)
-            elif data_flag == Protocol.SECRET.value:
+            elif data_flag == Protocol.SECRET:
                 peer_key = self._load_peer_key(packets)
                 self._ack_handshake(peer_key)
-            elif data_flag == Protocol.SECRET_ACK.value:
+            elif data_flag == Protocol.SECRET_ACK:
                 peer_key = self._load_peer_key(packets)
                 self._exchange(peer_key)
                 if self._sending_obj:
                     self._send_obj()
-            elif data_flag == Protocol.SEND.value:
+            elif data_flag == Protocol.SEND:
                 enc_obj = self._load_enc_obj(packets)
                 obj = self._decrypt(enc_obj)
                 self.received_object = obj

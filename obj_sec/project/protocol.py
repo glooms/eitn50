@@ -1,5 +1,3 @@
-from enum import Enum
-
 '''
     Protocol proposal:
 
@@ -34,7 +32,7 @@ from enum import Enum
 '''
 
 
-class Protocol(Enum):
+class Protocol:
     BASE    = 0b10000000 # Contains the base parameters
     SECRET  = 0b01000000 # Contains information to setup a common secret
     SEND    = 0b00100000 # Contains encrypted objects

@@ -12,6 +12,7 @@ class Peer(object):
         self._server_socket = self._setup_socket()
         self._client_socket = self._setup_socket(False)
         self._log_file = open(log_name, 'w')
+        self._log_cnt = 0
 
     def _setup_socket(self, server=True):
         try:
@@ -40,7 +41,9 @@ class Peer(object):
             self._receive(data)
     
     def log(self, text):
-        self._log_file.write(text)
-        self._log_file.write('\n')
+        if len(text) > 80:
+            text = text[:80] + '...'
+        self._log_file.write('Entry %d:\t%s\n' % (self._log_cnt, text))
         self._log_file.flush()
+        self._log_cnt += 1
 
