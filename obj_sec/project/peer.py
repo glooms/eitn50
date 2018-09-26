@@ -4,12 +4,13 @@ import thread
 
 class Peer(object):
 
-    def __init__(self, host, server_port, client_port):
+    def __init__(self, host, server_port, client_port, log_name):
         self.host = host
         self.server_port = server_port
         self.client_port = client_port
         self._server_socket = self._setup_socket()
         self._client_socket = self._setup_socket(False)
+        self._log_file = open(log_name, 'w')
 
     def _setup_socket(self, server=True):
         try:
@@ -18,7 +19,7 @@ class Peer(object):
                 s.bind((self.host, self.server_port))
             else:
                 s.connect((self.host, self.client_port))
-        except e:
+        except Exception as e:
             print e
             sys.exit()
         return s
@@ -36,3 +37,9 @@ class Peer(object):
         while 1:
             data, addr = self._server_socket.recvfrom(64)
             self._receive(data)
+    
+    def log(self, text):
+        self._log_file.write(text)
+        self._log_file.write('\n')
+        self._log_file.flush()
+

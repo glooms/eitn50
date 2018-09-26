@@ -21,6 +21,7 @@ class DHPeer(Peer):
         self._send_params()
 
     def _gen_params(self):
+        self.log('Generating parameters.')
         self.params = dh.generate_parameters(
             generator=2,
             key_size=512,
@@ -53,38 +54,50 @@ class DHPeer(Peer):
 
     def _send_obj(self):
         obj = self._sending_obj
+        self.log('Encrypting object.')
         enc_obj = jwt.encode(obj, self.shared_key, algorithm='HS256')
-        print 'Size: %d' % len(enc_obj)
+        self.log('Sending object.')
         self._send(Protocol.SEND.value, enc_obj)
         self._sending_obj = None
 
     def _decrypt(self, enc_obj):
+        self.log('Object received.')
+        self.log('Decrypting object.')
         obj = jwt.decode(u''.join(enc_obj), self.shared_key, algorithms='HS256')
         return obj
 
     def _send_params(self):
+        self.log('Sending parameters.')
         param_bytes = self.params.parameter_bytes(Encoding.DER, ParameterFormat.PKCS3)
         self._send(Protocol.BASE.value, param_bytes)
 
     def _init_handshake(self):
+        self.log('Generating private key.')
         self.private_key = self.params.generate_private_key()
+        self.log('Generating public key.')
         public_key = self.private_key.public_key()
         self._send_public_key(public_key)
 
     def _ack_handshake(self, peer_key):
+        self.log('Received peer public key.')
+        self.log('Generating private key.')
         self.private_key = self.params.generate_private_key()
+        self.log('Generating public key.')
         public_key = self.private_key.public_key()
         self._send_public_key_ack(public_key)
         self._exchange(peer_key)
 
     def _exchange(self, peer_key):
+        self.log('Computing shared key.')
         self.shared_key = self.private_key.exchange(peer_key)
 
     def _send_public_key(self, pub_key):
+        self.log('Sending public key.')
         pub_key_bytes = pub_key.public_bytes(Encoding.DER, PublicFormat.SubjectPublicKeyInfo)
         self._send(Protocol.SECRET.value, pub_key_bytes)
 
     def _send_public_key_ack(self, pub_key):
+        self.log('Sending public key.')
         pub_key_bytes = pub_key.public_bytes(Encoding.DER, PublicFormat.SubjectPublicKeyInfo)
         self._send(Protocol.SECRET_ACK.value, pub_key_bytes)
 
@@ -138,6 +151,7 @@ class DHPeer(Peer):
         return data
 
     def _load_params(self, packets):
+        self.log('Received parameters.')
         param_data = self._load(packets)
         self.params = load_der_parameters(param_data, self.backend)
 
@@ -153,17 +167,27 @@ class DHPeer(Peer):
 
 
 def test(port1=5000, port2=5001):
-    a = DHPeer(host='', server_port=port1, client_port=port2)
-    b = DHPeer(host='', server_port=port2, client_port=port1)
+    a = DHPeer(host='', server_port=port1, client_port=port2, log_name='a.log')
+    b = DHPeer(host='', server_port=port2, client_port=port1, log_name='b.log')
     a.start()
     b.start()
     return (a, b)
 
 if __name__ == '__main__':
-    a, b = test()
-    a.setup_base()
-    d = {'swe': 'Hej', 'en': 'Hello', 'pt': 'Ola'}
-    a.send(d)
+    import sys
+    if len(sys.argv) < 2:
+        print 'TEST MODE'
+        print 'Run with host, server_port, client_port and' \
+                'log file name arguments for normal mode.'
+        a, b = test()
+        a.setup_base()
+        d = {'swe': 'Hej', 'en': 'Hello', 'pt': 'Ola'}
+        a.send(d)
+    elif len(sys.argv) == 5:
+        host, sp, cp, log_name = sys.argv[1:]
+        peer = DHPeer(host=host, server_port=int(sp), client_port=int(cp), log_name=log_name)
+        peer.start()
+
 
 def run_tests():
     test1()
