@@ -4,8 +4,9 @@ import thread
 
 class Peer(object):
 
-    def __init__(self, host, server_port, client_port, log_name):
+    def __init__(self, host, remote, server_port, client_port, log_name):
         self.host = host
+        self.remote = remote
         self.server_port = server_port
         self.client_port = client_port
         self._server_socket = self._setup_socket()
@@ -18,7 +19,7 @@ class Peer(object):
             if server:
                 s.bind((self.host, self.server_port))
             else:
-                s.connect((self.host, self.client_port))
+                s.connect((self.remote, self.client_port))
         except Exception as e:
             print e
             sys.exit()

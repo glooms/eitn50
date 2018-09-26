@@ -167,8 +167,8 @@ class DHPeer(Peer):
 
 
 def test(port1=5000, port2=5001):
-    a = DHPeer(host='', server_port=port1, client_port=port2, log_name='a.log')
-    b = DHPeer(host='', server_port=port2, client_port=port1, log_name='b.log')
+    a = DHPeer(host='', remote='', server_port=port1, client_port=port2, log_name='a.log')
+    b = DHPeer(host='', remote='', server_port=port2, client_port=port1, log_name='b.log')
     a.start()
     b.start()
     return (a, b)
@@ -177,15 +177,16 @@ if __name__ == '__main__':
     import sys
     if len(sys.argv) < 2:
         print 'TEST MODE'
-        print 'Run with host, server_port, client_port and' \
+        print 'Run with host_ip, remote_ip, server_port, client_port and' \
                 'log file name arguments for normal mode.'
         a, b = test()
         a.setup_base()
         d = {'swe': 'Hej', 'en': 'Hello', 'pt': 'Ola'}
         a.send(d)
-    elif len(sys.argv) == 5:
-        host, sp, cp, log_name = sys.argv[1:]
-        peer = DHPeer(host=host, server_port=int(sp), client_port=int(cp), log_name=log_name)
+    elif len(sys.argv) == 6:
+        host, remote, sp, cp, log_name = sys.argv[1:]
+        peer = DHPeer(host=host, remote=remote,
+                server_port=int(sp), client_port=int(cp), log_name=log_name)
         peer.start()
 
 
