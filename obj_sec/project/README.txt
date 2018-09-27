@@ -19,4 +19,7 @@ The objects sent and received are printed in clear text in the log file (althoug
 
 You can examine the last received object by:
 
-peer.last_received() 
+peer.last_received()
+
+
+Note that the cryptography and jose directories are include libraries. The only files you need to examine is dhpeer.py, peer.py and protocol.py. 
