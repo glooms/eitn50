@@ -1,3 +1,5 @@
+This project use python2.7!
+
 To run the code in testmode write:
 
 python -i dhpeer.py
