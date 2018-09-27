@@ -15,6 +15,7 @@ class DHPeer(Peer):
         self._buffer = []
         self._remaining = {}
         self._sending_obj = None
+        self._rec_objs = []
 
     def setup_base(self):
         self._gen_params()
@@ -31,6 +32,9 @@ class DHPeer(Peer):
     def send(self, obj):
         self._sending_obj = obj
         self._init_handshake()
+
+    def last_received(self):
+        return self._rec_objs[-1]
 
     def _send(self, packet_type, data=None):
         if data and len(data) > 60 * 0x7F:
@@ -132,7 +136,7 @@ class DHPeer(Peer):
             elif data_flag == Protocol.SEND:
                 enc_obj = self._load_enc_obj(packets)
                 obj = self._decrypt(enc_obj)
-                self.received_object = obj
+                self._rec_objs += [obj]
 
     def _all_received(self, data_flag, session_id):
         f = lambda x : ord(x[0]) == data_flag and x[2:4] == session_id
@@ -169,8 +173,8 @@ class DHPeer(Peer):
 
 
 def test(port1=5000, port2=5001):
-    a = DHPeer(host='', remote='', server_port=port1, client_port=port2, log_name='a.log')
-    b = DHPeer(host='', remote='', server_port=port2, client_port=port1, log_name='b.log')
+    a = DHPeer(host='', remote='', host_port=port1, remote_port=port2, log_name='a.log')
+    b = DHPeer(host='', remote='', host_port=port2, remote_port=port1, log_name='b.log')
     a.start()
     b.start()
     return (a, b)
@@ -179,16 +183,16 @@ if __name__ == '__main__':
     import sys
     if len(sys.argv) < 2:
         print 'TEST MODE'
-        print 'Run with host_ip, remote_ip, server_port, client_port and' \
+        print 'Run with host_ip, remote_ip, host_port, host_port and' \
                 'log file name arguments for normal mode.'
         a, b = test()
         a.setup_base()
         d = {'swe': 'Hej', 'en': 'Hello', 'pt': 'Ola'}
         a.send(d)
     elif len(sys.argv) == 6:
-        host, remote, sp, cp, log_name = sys.argv[1:]
+        host, remote, hp, rp, log_name = sys.argv[1:]
         peer = DHPeer(host=host, remote=remote,
-                server_port=int(sp), client_port=int(cp), log_name=log_name)
+                host_port=int(hp), remote_port=int(rp), log_name=log_name)
         peer.start()
 
 
@@ -212,7 +216,7 @@ def test2():
 
 def test3():
     sent_obj = d
-    rec_obj = b.received_object
+    rec_obj = b.last_received()
     assert sent_obj == rec_obj
     print 'Test 3 passed.'
 
@@ -220,6 +224,6 @@ def test4():
     large_obj = {u'' + str(i) :range(100) for i in xrange(18)}
     b.send(large_obj)
     import time; time.sleep(1)
-    rec_obj = a.received_object
+    rec_obj = a.last_received()
     assert large_obj == rec_obj
     print 'Test 4 passed.'
